@@ -17,6 +17,7 @@ public final class DialupNoises extends JavaPlugin {
 
     @SuppressWarnings("ConstantConditions")
     private void registerCommands() {
+        // TODO: allow toggling of commands as admins see fit
         this.getCommand("rtp").setExecutor(new RTPCommand());
         this.getCommand("nick").setExecutor(new NicknameCommand());
     }

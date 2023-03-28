@@ -15,37 +15,43 @@ import org.bukkit.event.player.PlayerQuitEvent;
 public class PlayerEvents implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        event.joinMessage(Component.text(ChatColor.GREEN + "+ " + ChatColor.GRAY +
-        PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, ((TextComponent) player.customName()).content())));
+        if (true) { // TODO: make join/leave messages toggleable
+            Player player = event.getPlayer();
+            event.joinMessage(Component.text(ChatColor.GREEN + "+ " + ChatColor.GRAY +
+                    PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, ((TextComponent) player.customName()).content())));
 
-        player.customName(player.displayName());
-        player.setCustomNameVisible(false);
+            player.customName(player.displayName());
+            player.setCustomNameVisible(false);
 
-        player.displayName(Component.text(PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, "")));
-        player.playerListName(Component.text(
-                "[" + PlayerStringStorage.get(player, PlayerStringStorage.KEY_TITLE, ((TextComponent) player.customName()).content()) + "] " +
-                PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, ((TextComponent) player.customName()).content()) +
-                " (" + ((TextComponent) player.customName()).content() + ")")
-        );
+            player.displayName(Component.text(PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, "")));
+            player.playerListName(Component.text(
+                    "[" + PlayerStringStorage.get(player, PlayerStringStorage.KEY_TITLE, ((TextComponent) player.customName()).content()) + "] " +
+                            PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, ((TextComponent) player.customName()).content()) +
+                            " (" + ((TextComponent) player.customName()).content() + ")")
+            );
+        }
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        event.quitMessage(Component.text(ChatColor.RED + "- " + ChatColor.GRAY +
-        PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, ((TextComponent) player.customName()).content())));
+        if (true) { // TODO: make join/leave messages toggleable
+            Player player = event.getPlayer();
+            event.quitMessage(Component.text(ChatColor.RED + "- " + ChatColor.GRAY +
+                    PlayerStringStorage.get(player, PlayerStringStorage.KEY_NICKNAME, ((TextComponent) player.customName()).content())));
+        }
     }
 
     @EventHandler
     @SuppressWarnings("deprecation")
     public void onChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
+        if (true) { // TODO: allow configuration and toggling of title system
+            Player player = event.getPlayer();
 
-        event.setFormat(
-                ChatColor.GRAY + "%1$s the " +
-                PlayerStringStorage.get(player, PlayerStringStorage.KEY_TITLE, ChatColor.DARK_GRAY + "" + ChatColor.MAGIC + "Mysterious") +
-                ChatColor.RESET + ":" + " %2$s"
-        );
+            event.setFormat(
+                    ChatColor.GRAY + "%1$s the " +
+                            PlayerStringStorage.get(player, PlayerStringStorage.KEY_TITLE, ChatColor.DARK_GRAY + "" + ChatColor.MAGIC + "Mysterious") +
+                            ChatColor.RESET + ":" + " %2$s"
+            );
+        }
     }
 }
