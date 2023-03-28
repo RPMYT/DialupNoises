@@ -1,0 +1,14 @@
+name: DialupNoises
+version: '${project.version}'
+main: io.github.rpmyt.dialupnoises.DialupNoises
+api-version: 1.19
+load: STARTUP
+commands:
+  nick:
+    description: Sets your nickname.
+    permission: dialupnoises.commands.nick
+    permission-message: You don't have permission to change your nickname!
+  rtp:
+    description: Teleports you to a random location.
+    permission: dialupnoises.commands.rtp
+    permission-message: You don't have permission to randomly teleport!

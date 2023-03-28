@@ -1,0 +1,6 @@
+# Project exclude paths
+/target/
+
+# IDEA stuff and Paper working dir
+.idea/
+run/
